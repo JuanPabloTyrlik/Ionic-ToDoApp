@@ -18,6 +18,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'add',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../add/add.module').then( m => m.AddPageModule)
+          }
+        ]
+      },
+      {
         path: 'tab2',
         children: [
           {
