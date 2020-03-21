@@ -9,9 +9,21 @@ export class TasksService {
   list: List[] = [];
 
   constructor() {
-    const list1 = new List('Test List 1');
-    const list2 = new List('Test List 2');
+    this.loadLocalStorage();
+  }
 
-    this.list.push(list1, list2);
+  newList(title: string) {
+    this.list.push(new List(title));
+    this.saveLocalStorage();
+  }
+
+  saveLocalStorage() {
+    localStorage.setItem('data', JSON.stringify(this.list));
+  }
+
+  loadLocalStorage() {
+    if (localStorage.getItem('data')) {
+      this.list = JSON.parse( localStorage.getItem('data'));
+    }
   }
 }
