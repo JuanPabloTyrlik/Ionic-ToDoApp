@@ -30,11 +30,26 @@ export class AddPage implements OnInit {
     const newItem = new ListItem( this.itemName );
     this.taskList.items.push(newItem);
     this.itemName = '';
+    this.taskList.endedOn = null;
+    this.taskList.completed = false;
     this.tasksService.saveLocalStorage();
   }
 
   updateCheckbox(item: ListItem) {
-    const pending = this.taskList.items.filter(itemdata => !item.finished).length;
+    const pending = this.taskList.items.filter(itemdata => !itemdata.finished).length;
+    if (pending === 0) {
+      this.taskList.endedOn = new Date();
+      this.taskList.completed = true;
+    } else {
+      this.taskList.endedOn = null;
+      this.taskList.completed = false;
+    }
+    this.tasksService.saveLocalStorage();
+  }
+
+  delete(index: number) {
+    this.taskList.items.splice(index, 1);
+    const pending = this.taskList.items.filter(itemdata => !itemdata.finished).length;
     if (pending === 0) {
       this.taskList.endedOn = new Date();
       this.taskList.completed = true;
