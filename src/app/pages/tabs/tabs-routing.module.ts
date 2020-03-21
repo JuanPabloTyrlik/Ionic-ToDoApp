@@ -18,7 +18,7 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'add',
+        path: 'add/:listId',
         children: [
           {
             path: '',
