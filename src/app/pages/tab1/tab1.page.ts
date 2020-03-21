@@ -9,11 +9,11 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-  
+
   constructor( public tasksService: TasksService,
-    private router: Router,
-    private alert: AlertController ) {}
-    
+               private router: Router,
+               private alert: AlertController ) {}
+
     async addList() {
       const alert = await this.alert.create({
         header: 'Crear lista',
@@ -42,8 +42,8 @@ export class Tab1Page {
           }
         ]
     });
-    
-    await alert.present();
+
+      await alert.present();
   }
-  
+
 }
