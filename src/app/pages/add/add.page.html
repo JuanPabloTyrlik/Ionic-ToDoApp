@@ -19,8 +19,8 @@
         <!-- <ion-list-header color="dark">
             <ion-label>To do</ion-label>
         </ion-list-header> -->
-        <ion-item color="dark" *ngFor="let item of taskList.items">
-            <ion-checkbox slot="start" color="success"></ion-checkbox>
+        <ion-item color="dark" *ngFor="let item of taskList.items" class="animated fadeInDown">
+            <ion-checkbox slot="start" color="success" [(ngModel)]="item.finished" (ionChange)="updateCheckbox(item)"></ion-checkbox>
             <ion-label>{{ item.description }}</ion-label>
         </ion-item>
     </ion-list>

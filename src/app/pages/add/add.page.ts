@@ -33,4 +33,16 @@ export class AddPage implements OnInit {
     this.tasksService.saveLocalStorage();
   }
 
+  updateCheckbox(item: ListItem) {
+    const pending = this.taskList.items.filter(itemdata => !item.finished).length;
+    if (pending === 0) {
+      this.taskList.endedOn = new Date();
+      this.taskList.completed = true;
+    } else {
+      this.taskList.endedOn = null;
+      this.taskList.completed = false;
+    }
+    this.tasksService.saveLocalStorage();
+  }
+
 }

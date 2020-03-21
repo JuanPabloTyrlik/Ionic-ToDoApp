@@ -8,7 +8,7 @@
 
 <ion-content color="dark">
     <ion-list color="dark">
-        <ion-item *ngFor="let list of tasksService.lists" detail color="dark">
+        <ion-item *ngFor="let list of tasksService.lists" detail color="dark" (click)="editList(list)">
             <ion-label> {{ list.title }}</ion-label>
         </ion-item>
     </ion-list>
