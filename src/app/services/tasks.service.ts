@@ -19,6 +19,11 @@ export class TasksService {
     return newList.id;
   }
 
+  deleteList(list: List) {
+    this.lists = this.lists.filter( eachList => eachList.id !== list.id);
+    this.saveLocalStorage();
+  }
+
   getList(id: number | string) {
     id = Number(id);
     return this.lists.find( item => item.id === id );

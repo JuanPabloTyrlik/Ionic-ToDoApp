@@ -24,4 +24,8 @@ export class ListsComponent implements OnInit {
       this.router.navigate(['/tabs/tab2/add', list.id]);
     }
   }
+
+  deleteList(list: List) {
+    this.tasksService.deleteList(list);
+  }
 }
