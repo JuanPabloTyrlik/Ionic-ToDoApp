@@ -1,0 +1,6 @@
+<ion-list color="dark">
+    <ion-item *ngFor="let list of tasksService.lists" detail color="dark" (click)="editList(list)">
+        <ion-label> {{ list.title }}</ion-label>
+        <ion-note slot="end" color="success"> {{ list.items.length }} items</ion-note>
+    </ion-item>
+</ion-list>
